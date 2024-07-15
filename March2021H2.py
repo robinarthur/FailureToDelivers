@@ -32,7 +32,8 @@ for etf in etfs_holding_gme:
 
 ftds_etfs_latest = ftds_etfs_w_gme.loc[last_ftd_dates, ]
 
-all_ftds = ftds_gme_last.append(ftds_etfs_latest)
+all_ftds = ftds_gme_last._append(ftds_etfs_latest)
+#all_ftds = pd.concat([ftds_gme_last, pd.DataFrame([ftds_etfs_latest])], ignore_index=True)
 all_ftds.to_csv(DATA_DIR + '/cleaned/latest_gme_and_etf_ftds.csv', index=None)
 
 
